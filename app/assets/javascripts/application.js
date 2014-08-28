@@ -15,7 +15,6 @@
 //= require bootstrap
 //= require select2
 //= require turbolinks
-//= require ckeditor/override
 //= require ckeditor/init
 //= require_tree ./ckeditor
 //= require articles
