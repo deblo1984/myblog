@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="col-sm-6 col-md-4 col-md-offset-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="text-center">Sign in</h1>
+      </div>
+      <div class="panel-body">
+        <%= bootstrap_flash %>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {class: 'form-signin'}) do |f| %>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <%= f.email_field :email, :autofocus => true, :class => 'form-control', :placeholder => 'Email' %>
+          </div>
+          <div class="form-group">
+            <label for="email">Password</label>
+            <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password' %>
+          </div>
+          <div class="form-group">
+            <% if devise_mapping.rememberable? -%>
+              <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+            <% end -%>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Sign in", :class => 'btn btn-primary btn-md btn-block' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

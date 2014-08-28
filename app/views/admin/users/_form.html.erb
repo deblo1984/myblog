@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="col-sm-6 col-md-4 col-md-offset-4">
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h2 class="text-center">Add User</h1>
+      </div>
+      <div class="panel-body">
+      <%= render 'partials/errors', object: @user %>
+    <%= form_for ([:admin, @user]), :html => { :class => 'form-signin' } do |f| %>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <%= f.email_field :email, :autofocus => true, :class => 'form-control', :placeholder => 'Email' %>
+        </div>
+        <div class="form-group">
+          <label for="email">Password</label>
+          <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password', autocomplete: "off" %>
+        </div>
+        <div class="form-group">
+          <label for="email">Password confirmation</label>
+            <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => 'Password confirmation',  autocomplete: "off" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Save", :class => 'btn btn-success btn-md btn-block' %>
+        </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,24 @@
+<div class="col-md-4">
+
+	<div class="panel panel-danger">
+		<div class="panel-heading">
+			<h4>Latest Posts</h4>
+		</div>
+		<ul class="nav nav-list">
+				<% @recents.each do |r| %>
+					<li><%= link_to r.title, post_path(r) %></a></li>
+				<% end %>
+			
+		</ul>
+	</div>
+	<div class="panel panel-danger">
+		<div class="panel-heading">
+			<h4>Tags</h4>
+		</div>
+		<ul class="nav nav-list">
+			<% tag_cloud Article.tag_counts, %w[s m l] do |tag, css_class| %>
+    			<%= link_to tag.name, tags_path(tag.name), class: css_class %>
+  			<% end %>
+		</ul>
+	</div>
+</div>

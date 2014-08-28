@@ -1,0 +1,67 @@
+  <%= form_for ([:admin, @article]), :html => { :class => 'form-horizontal' } do |f| %>
+   <div class="col-md-9 col-sm-9">
+      <%= render 'partials/errors', object: @article %>
+      <div class="form-group">
+          <%= f.text_field :title, :class => 'text_field form-control', :placeholder => 'Post Title' %>
+      </div>
+      <div class="form-group">
+          <%= f.cktext_area :body, :ckeditor => {:uiColor => '#ffffff', :toolbar => 'easy'} %>
+       
+      </div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+      <div class="panel-group">
+         <%= f.submit "Publish", :name=> 'publish', :class => 'btn btn-danger' %>
+          <%= f.submit "Draft", :class => 'btn btn-success' %>
+          <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  admin_articles_path, :class => 'btn btn-warning' %> 
+      </div>
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-book">
+                </span>Category</a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse collapse">
+            <div class="panel-body">
+                
+              <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Select Category"}, {class: "form-control"} %>
+           
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-tags">
+                </span>Tags Label</a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse collapse">
+            <div class="panel-body">
+                
+            <%= f.text_field :tag_list, class: "form-control", data: { url: admin_autocomplete_tags_path,
+                                                              saved: f.object.tags.map{|t| {id: t.name, name: t.name}}.to_json, 
+                                                              placeholder: 'Enter tags'} %>
+          
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-header">
+                </span>Keywords</a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse collapse">
+            <div class="panel-body">
+              <%= f.text_field :keyword, :class => 'text_field form-control' %>         
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>

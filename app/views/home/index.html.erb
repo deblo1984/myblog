@@ -1,0 +1,25 @@
+<% unless @posts.present? %>
+<div class="col-sm-6 col-md-6">
+	<span> No posting available</span>
+</div>
+<% end %>
+<div class="col-md-8">
+<% @posts.each do |post| %>
+	<article>
+		<h2><%= link_to post.title, blog_path(post) %></h2>
+		<div class="row">
+			<div class="col-sm-6 col-md-6">
+			</div>
+			<div class="col-sm-6 col-md-6">
+				<span class="glyphicon glyphicon-pencil"></span> <a href="singlepost.html#comments"><%= post.user.profile.first_name %></a>		          		&nbsp;&nbsp;<span class="glyphicon glyphicon-time"></span> <%= post.created_at.strftime("%b %d, %Y") %>
+			</div>
+		</div>
+		<hr>
+		<p><%=truncate((sanitize post.body, :tags => %w(pre code), attributes: %w(class)), :length => 400) %></p>
+		<p class="text-right"><a href="singlepost.html">continue reading...</a></p>	
+		<hr>
+	</article>
+<% end %>
+<%= paginate(@posts) %>
+</div>
+<%= render :partial => 'partials/sidebar' %>
