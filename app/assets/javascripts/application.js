@@ -16,7 +16,4 @@
 //= require select2
 //= require turbolinks
 //= require ckeditor/init
-//= require_tree ./ckeditor
-//= require articles
-//= require global
-//= require prism
+//= require_tree .
