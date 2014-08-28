@@ -31,7 +31,9 @@ gem 'mysql', group: :development
 
 gem 'pg', group: :production
 
-gem 'rails_12factor' , group: :production 			 
+gem 'rails_12factor' , group: :production 		
+
+gem 'unicorn', group: :production	 
 
 gem 'devise'
 
