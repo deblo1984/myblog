@@ -32,7 +32,7 @@ $(document).on "ready page:load", ->
         if $(data).filter(->
           @name.localeCompare(term) is 0
         ).length is 0
-          id: term
+          
           name: term
 
       formatResult: (item, page) ->

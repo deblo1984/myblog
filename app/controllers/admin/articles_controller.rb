@@ -89,7 +89,7 @@ class Admin::ArticlesController < ApplicationController
       where("name LIKE ?", "#{params[:q]}%").
       order(:name)
     respond_to do |format|
-      format.json { render json: @tags , :only => [:id, :name] }
+       format.json { render :json => @tags.collect{|t| {:id => t.name, :name => t.name }}}
     end
   end
 
