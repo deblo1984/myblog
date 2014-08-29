@@ -26,6 +26,9 @@ body {
 @import "bootstrap";
 @import "select2";
 @import "select2-bootstrap";
+@import 'nprogress';
+@import 'nprogress-bootstrap';
+
 .navbar-default .navbar-nav > li > a {
     color: #ffffff;
 }

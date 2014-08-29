@@ -5,4 +5,6 @@
 //= require turbolinks
 //= require prism
 //= require global
+//= require nprogress
+//= require nprogress-turbolinks
 //= require articles
