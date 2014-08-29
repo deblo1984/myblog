@@ -100,6 +100,7 @@ GEM
     minitest (5.4.0)
     multi_json (1.10.1)
     mysql (2.9.1)
+    nprogress-rails (0.1.3.1)
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
@@ -209,6 +210,7 @@ DEPENDENCIES
   metamagic
   mini_magick
   mysql
+  nprogress-rails
   omniauth
   paperclip
   pg

@@ -65,4 +65,6 @@ gem "ckeditor", :github => "galetahub/ckeditor"
 
 gem 'friendly_id'
 
+gem 'nprogress-rails'
+
 gem 'bcrypt', '~> 3.1.7'
