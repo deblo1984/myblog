@@ -1,0 +1,22 @@
+#development:
+ # adapter: mysql
+  #database: railsblog
+  #username: root
+  #password: maikuraki
+  #host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: myblog
+  pool: 5
+  username: vagrant
+  password: 
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: myblog
+  pool: 5
+  username: vagrant
+  password: 
